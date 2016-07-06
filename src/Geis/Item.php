@@ -1,10 +1,11 @@
 <?php
 namespace Shopeca\XML\Delivery\Geis;
 
-use Nette\Utils\DateTime;
 use Shopeca\XML\Generators\BaseItem;
 
 class Item extends BaseItem {
+
+	use Updatable;
 
 	CONST
 		DELIVERY_TYPE_PARCEL = 0,
@@ -38,7 +39,7 @@ class Item extends BaseItem {
 	/** @var string */
 	private $crossDockName; // for CD only
 
-	/** @var string|DateTime */
+	/** @var \DateTime */
 	private $deliveryToDc; // for CD only
 
 	/** @var string */
@@ -47,87 +48,17 @@ class Item extends BaseItem {
 	/** @var string */
 	private $packagePickUpType; // for CD only
 
-	// Sender
-	/** @var string @required */
-	private $sendName;
-
-	/** @var string @required */
-	private $sendStreet;
-
-	/** @var string */
-	private $sendStreetNumOri;
-
-	/** @var string */
-	private $sendStreetNumDesc;
-
-	/** @var string @required */
-	private $sendCity;
-
-	/** @var string @required */
-	private $sendZipCode;
-
-	/** @var string @required */
-	private $sendCountry; // ISO 3166-1 alpha-2
-
-	/** @var string */
-	private $sendContactName;
-
-	/** @var string */
-	private $sendContactEmail;
-
-	/** @var string */
-	private $sendContactPhone;
+	/** @var Person @required */
+	protected $sender;
 
 	/** @var bool @required */
-	private $userPrintSend;
+	private $usePrintSend;
 
-	/** @var string */
-	private $printSendName;
+	/** @var Person */
+	protected $printSend;
 
-	/** @var string */
-	private $printSendStreet;
-
-	/** @var string */
-	private $printSendStreetNumOri;
-
-	/** @var string */
-	private $printSendStreetNumDesc;
-
-	/** @var string */
-	private $printSendCity;
-
-	/** @var string */
-	private $printSendZipCode;
-
-	/** @var string */
-	private $printSendCountry; // ISO 3166-1 alpha-2
-
-	/** @var string */
-	private $printSendContactPhone;
-
-	/** @var string */
-	private $recContactName;
-
-	/** @var string @required */
-	private $recName;
-
-	/** @var string @required */
-	private $recStreet;
-
-	/** @var string */
-	private $recStreetNumOri;
-
-	/** @var string */
-	private $recStreetNumDesc;
-
-	/** @var string @required */
-	private $recCity;
-
-	/** @var string @required */
-	private $recZipCode;
-
-	/** @var string @required */
-	private $recCountry; // ISO 3166-1 alpha-2
+	/** @var Person */
+	protected $rec;
 
 	/** @var string */
 	private $recNote;
@@ -139,15 +70,9 @@ class Item extends BaseItem {
 	private $addrCode;
 
 	/** @var string */
-	private $recContactPhone;
-
-	/** @var string */
-	private $recContactEmail;
-
-	/** @var string */
 	private $pasName;
 
-	/** @var string|DateTime @require */
+	/** @var \DateTime @require */
 	private $pickUpDate;
 
 	/** @var string */
@@ -170,18 +95,6 @@ class Item extends BaseItem {
 
 	/** @var string */
 	private $backInfoEmail;
-
-	/** @var string|DateTime */
-	private $created;
-
-	/** @var string */
-	private $createdByName;
-
-	/** @var string|DateTime */
-	private $changed;
-
-	/** @var string */
-	private $changedByName;
 
 	/** @var Services */
 	private $services;
@@ -318,18 +231,18 @@ class Item extends BaseItem {
 	}
 
 	/**
-	 * @return DateTime|string
+	 * @return \DateTime
 	 */
 	public function getDeliveryToDc () {
 		return $this->deliveryToDc;
 	}
 
 	/**
-	 * @param DateTime|string $deliveryToDc
+	 * @param \DateTime|string $deliveryToDc
 	 * @return Item
 	 */
 	public function setDeliveryToDc ( $deliveryToDc ) {
-		$this->deliveryToDc = $deliveryToDc;
+		$this->deliveryToDc = $deliveryToDc instanceof \DateTime ? $deliveryToDc : new \DateTime($deliveryToDc);
 		return $this;
 	}
 
@@ -366,434 +279,64 @@ class Item extends BaseItem {
 	}
 
 	/**
-	 * @return string
+	 * @return Person
 	 */
-	public function getSendName () {
-		return $this->sendName;
+	public function getSender () {
+		return $this->sender;
 	}
 
 	/**
-	 * @param string $sendName
+	 * @param Person $person
 	 * @return Item
 	 */
-	public function setSendName ( $sendName ) {
-		$this->sendName = $sendName;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendStreet () {
-		return $this->sendStreet;
-	}
-
-	/**
-	 * @param string $sendStreet
-	 * @return Item
-	 */
-	public function setSendStreet ( $sendStreet ) {
-		$this->sendStreet = $sendStreet;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendStreetNumOri () {
-		return $this->sendStreetNumOri;
-	}
-
-	/**
-	 * @param string $sendStreetNumOri
-	 * @return Item
-	 */
-	public function setSendStreetNumOri ( $sendStreetNumOri ) {
-		$this->sendStreetNumOri = $sendStreetNumOri;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendStreetNumDesc () {
-		return $this->sendStreetNumDesc;
-	}
-
-	/**
-	 * @param string $sendStreetNumDesc
-	 * @return Item
-	 */
-	public function setSendStreetNumDesc ( $sendStreetNumDesc ) {
-		$this->sendStreetNumDesc = $sendStreetNumDesc;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendCity () {
-		return $this->sendCity;
-	}
-
-	/**
-	 * @param string $sendCity
-	 * @return Item
-	 */
-	public function setSendCity ( $sendCity ) {
-		$this->sendCity = $sendCity;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendZipCode () {
-		return $this->sendZipCode;
-	}
-
-	/**
-	 * @param string $sendZipCode
-	 * @return Item
-	 */
-	public function setSendZipCode ( $sendZipCode ) {
-		$this->sendZipCode = $sendZipCode;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendCountry () {
-		return $this->sendCountry;
-	}
-
-	/**
-	 * @param string $sendCountry
-	 * @return Item
-	 */
-	public function setSendCountry ( $sendCountry ) {
-		$this->sendCountry = $sendCountry;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendContactName () {
-		return $this->sendContactName;
-	}
-
-	/**
-	 * @param string $sendContactName
-	 * @return Item
-	 */
-	public function setSendContactName ( $sendContactName ) {
-		$this->sendContactName = $sendContactName;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendContactEmail () {
-		return $this->sendContactEmail;
-	}
-
-	/**
-	 * @param string $sendContactEmail
-	 * @return Item
-	 */
-	public function setSendContactEmail ( $sendContactEmail ) {
-		$this->sendContactEmail = $sendContactEmail;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getSendContactPhone () {
-		return $this->sendContactPhone;
-	}
-
-	/**
-	 * @param string $sendContactPhone
-	 * @return Item
-	 */
-	public function setSendContactPhone ( $sendContactPhone ) {
-		$this->sendContactPhone = $sendContactPhone;
+	public function setSender ( Person $person ) {
+		$this->sender = $person;
 		return $this;
 	}
 
 	/**
 	 * @return boolean
 	 */
-	public function isUserPrintSend () {
-		return $this->userPrintSend;
+	public function isUsePrintSend () {
+		return $this->printSend instanceof Person;
 	}
 
 	/**
-	 * @param boolean $userPrintSend
+	 * @return Person
+	 */
+	public function getPrintSend () {
+		return $this->printSend;
+	}
+
+	/**
+	 * @param Person $person
 	 * @return Item
 	 */
-	public function setUserPrintSend ( $userPrintSend ) {
-		$this->userPrintSend = $userPrintSend;
+	public function setPrintSend ( Person $person ) {
+		$this->printSend = $person;
 		return $this;
 	}
 
 	/**
-	 * @return string
+	 * @return boolean
 	 */
-	public function getPrintSendName () {
-		return $this->printSendName;
+	public function isUseRec () {
+		return $this->rec instanceof Person;
 	}
 
 	/**
-	 * @param string $printSendName
+	 * @return Person
+	 */
+	public function getRec () {
+		return $this->rec;
+	}
+
+	/**
+	 * @param Person $person
 	 * @return Item
 	 */
-	public function setPrintSendName ( $printSendName ) {
-		$this->printSendName = $printSendName;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendStreet () {
-		return $this->printSendStreet;
-	}
-
-	/**
-	 * @param string $printSendStreet
-	 * @return Item
-	 */
-	public function setPrintSendStreet ( $printSendStreet ) {
-		$this->printSendStreet = $printSendStreet;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendStreetNumOri () {
-		return $this->printSendStreetNumOri;
-	}
-
-	/**
-	 * @param string $printSendStreetNumOri
-	 * @return Item
-	 */
-	public function setPrintSendStreetNumOri ( $printSendStreetNumOri ) {
-		$this->printSendStreetNumOri = $printSendStreetNumOri;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendStreetNumDesc () {
-		return $this->printSendStreetNumDesc;
-	}
-
-	/**
-	 * @param string $printSendStreetNumDesc
-	 * @return Item
-	 */
-	public function setPrintSendStreetNumDesc ( $printSendStreetNumDesc ) {
-		$this->printSendStreetNumDesc = $printSendStreetNumDesc;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendCity () {
-		return $this->printSendCity;
-	}
-
-	/**
-	 * @param string $printSendCity
-	 * @return Item
-	 */
-	public function setPrintSendCity ( $printSendCity ) {
-		$this->printSendCity = $printSendCity;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendZipCode () {
-		return $this->printSendZipCode;
-	}
-
-	/**
-	 * @param string $printSendZipCode
-	 * @return Item
-	 */
-	public function setPrintSendZipCode ( $printSendZipCode ) {
-		$this->printSendZipCode = $printSendZipCode;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendCountry () {
-		return $this->printSendCountry;
-	}
-
-	/**
-	 * @param string $printSendCountry
-	 * @return Item
-	 */
-	public function setPrintSendCountry ( $printSendCountry ) {
-		$this->printSendCountry = $printSendCountry;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getPrintSendContactPhone () {
-		return $this->printSendContactPhone;
-	}
-
-	/**
-	 * @param string $printSendContactPhone
-	 * @return Item
-	 */
-	public function setPrintSendContactPhone ( $printSendContactPhone ) {
-		$this->printSendContactPhone = $printSendContactPhone;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecContactName () {
-		return $this->recContactName;
-	}
-
-	/**
-	 * @param string $recContactName
-	 * @return Item
-	 */
-	public function setRecContactName ( $recContactName ) {
-		$this->recContactName = $recContactName;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecName () {
-		return $this->recName;
-	}
-
-	/**
-	 * @param string $recName
-	 * @return Item
-	 */
-	public function setRecName ( $recName ) {
-		$this->recName = $recName;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecStreet () {
-		return $this->recStreet;
-	}
-
-	/**
-	 * @param string $recStreet
-	 * @return Item
-	 */
-	public function setRecStreet ( $recStreet ) {
-		$this->recStreet = $recStreet;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecStreetNumOri () {
-		return $this->recStreetNumOri;
-	}
-
-	/**
-	 * @param string $recStreetNumOri
-	 * @return Item
-	 */
-	public function setRecStreetNumOri ( $recStreetNumOri ) {
-		$this->recStreetNumOri = $recStreetNumOri;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecStreetNumDesc () {
-		return $this->recStreetNumDesc;
-	}
-
-	/**
-	 * @param string $recStreetNumDesc
-	 * @return Item
-	 */
-	public function setRecStreetNumDesc ( $recStreetNumDesc ) {
-		$this->recStreetNumDesc = $recStreetNumDesc;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecCity () {
-		return $this->recCity;
-	}
-
-	/**
-	 * @param string $recCity
-	 * @return Item
-	 */
-	public function setRecCity ( $recCity ) {
-		$this->recCity = $recCity;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecZipCode () {
-		return $this->recZipCode;
-	}
-
-	/**
-	 * @param string $recZipCode
-	 * @return Item
-	 */
-	public function setRecZipCode ( $recZipCode ) {
-		$this->recZipCode = $recZipCode;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecCountry () {
-		return $this->recCountry;
-	}
-
-	/**
-	 * @param string $recCountry
-	 * @return Item
-	 */
-	public function setRecCountry ( $recCountry ) {
-		$this->recCountry = $recCountry;
+	public function setRec ( Person $person ) {
+		$this->rec = $person;
 		return $this;
 	}
 
@@ -848,38 +391,6 @@ class Item extends BaseItem {
 	/**
 	 * @return string
 	 */
-	public function getRecContactPhone () {
-		return $this->recContactPhone;
-	}
-
-	/**
-	 * @param string $recContactPhone
-	 * @return Item
-	 */
-	public function setRecContactPhone ( $recContactPhone ) {
-		$this->recContactPhone = $recContactPhone;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getRecContactEmail () {
-		return $this->recContactEmail;
-	}
-
-	/**
-	 * @param string $recContactEmail
-	 * @return Item
-	 */
-	public function setRecContactEmail ( $recContactEmail ) {
-		$this->recContactEmail = $recContactEmail;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
 	public function getPasName () {
 		return $this->pasName;
 	}
@@ -894,18 +405,18 @@ class Item extends BaseItem {
 	}
 
 	/**
-	 * @return DateTime|string
+	 * @return \DateTime
 	 */
 	public function getPickUpDate () {
 		return $this->pickUpDate;
 	}
 
 	/**
-	 * @param DateTime|string $pickUpDate
+	 * @param \DateTime|string $pickUpDate
 	 * @return Item
 	 */
 	public function setPickUpDate ( $pickUpDate ) {
-		$this->pickUpDate = $pickUpDate;
+		$this->pickUpDate = $pickUpDate instanceof \DateTime ? $pickUpDate : new \DateTime($pickUpDate);
 		return $this;
 	}
 
@@ -1022,70 +533,6 @@ class Item extends BaseItem {
 	}
 
 	/**
-	 * @return DateTime|string
-	 */
-	public function getCreated () {
-		return $this->created;
-	}
-
-	/**
-	 * @param DateTime|string $created
-	 * @return Item
-	 */
-	public function setCreated ( $created ) {
-		$this->created = $created;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCreatedByName () {
-		return $this->createdByName;
-	}
-
-	/**
-	 * @param string $createdByName
-	 * @return Item
-	 */
-	public function setCreatedByName ( $createdByName ) {
-		$this->createdByName = $createdByName;
-		return $this;
-	}
-
-	/**
-	 * @return DateTime|string
-	 */
-	public function getChanged () {
-		return $this->changed;
-	}
-
-	/**
-	 * @param DateTime|string $changed
-	 * @return Item
-	 */
-	public function setChanged ( $changed ) {
-		$this->changed = $changed;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getChangedByName () {
-		return $this->changedByName;
-	}
-
-	/**
-	 * @param string $changedByName
-	 * @return Item
-	 */
-	public function setChangedByName ( $changedByName ) {
-		$this->changedByName = $changedByName;
-		return $this;
-	}
-
-	/**
 	 * @return Services
 	 */
 	public function getServices () {
@@ -1109,11 +556,11 @@ class Item extends BaseItem {
 	}
 
 	/**
-	 * @param Row[] $rows
+	 * @param Row $row
 	 * @return Item
 	 */
-	public function setRows ( $rows ) {
-		$this->rows = $rows;
+	public function addRow (Row $row) {
+		$this->rows[] = $row;
 		return $this;
 	}
 

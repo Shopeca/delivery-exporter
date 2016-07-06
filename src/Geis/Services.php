@@ -31,7 +31,7 @@ class Services extends Nette\Object {
 	private $D12; // Delivery till 12 AM
 
 	/** @var bool */
-	private $exW; // Ex Works
+	private $exWorks; // Ex Works
 
 	/** @var bool */
 	private $gar; // Guaranteed delivery
@@ -45,7 +45,7 @@ class Services extends Nette\Object {
 	/** @var bool */
 	private $ema; // Notify the recipient by email
 
-	/** @var bool */
+	/** @var string */
 	private $tel; // Notify the recipient by phone
 
 	/** @var bool */
@@ -166,16 +166,16 @@ class Services extends Nette\Object {
 	/**
 	 * @return boolean
 	 */
-	public function isExW () {
-		return $this->exW;
+	public function isExWorks () {
+		return $this->exWorks;
 	}
 
 	/**
-	 * @param boolean $exW
+	 * @param boolean $exWorks
 	 * @return Services
 	 */
-	public function setExW ( $exW ) {
-		$this->exW = $exW;
+	public function setExWorks ( $exWorks ) {
+		$this->exWorks = $exWorks;
 		return $this;
 	}
 
@@ -206,7 +206,7 @@ class Services extends Nette\Object {
 	 * @param Insurance $poj
 	 * @return Services
 	 */
-	public function setPoj ( $poj ) {
+	public function setPoj ( Insurance $poj ) {
 		$this->poj = $poj;
 		return $this;
 	}
@@ -244,14 +244,14 @@ class Services extends Nette\Object {
 	}
 
 	/**
-	 * @return boolean
+	 * @return string
 	 */
-	public function isTel () {
+	public function getTel () {
 		return $this->tel;
 	}
 
 	/**
-	 * @param boolean $tel
+	 * @param string $tel
 	 * @return Services
 	 */
 	public function setTel ( $tel ) {

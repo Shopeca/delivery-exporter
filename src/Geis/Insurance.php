@@ -22,7 +22,7 @@ class Insurance extends Nette\Object {
 	public function __construct($value, $valueCur)
 	{
 		$this->value = (float)$value;
-		$this->varCode = (float)$varCode;
+		$this->valueCur = (float)$valueCur;
 	}
 
 	/**

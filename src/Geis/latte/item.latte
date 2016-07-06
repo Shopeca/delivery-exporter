@@ -1,0 +1,136 @@
+{contentType xml}
+<Package>
+	<isCargo>{$item->deliveryType}</isCargo>
+	<back>{$item->documentType}</back>
+
+	<number n:ifset="$item->number">{$item->number}</number>
+	<customerReference n:ifset="$item->customerReference">{$item->customerReference}</customerReference>
+	<documentNumber n:ifset="$item->documentNumber">{$item->documentNumber}</documentNumber>
+	<dpCode n:ifset="$item->dpCode">{$item->dpCode}</dpCode>
+	<notFillRecDp n:ifset="$item->notFillRecDp">{$item->notFillRecDp}</notFillRecDp>
+	<crossDockName n:ifset="$item->crossDockName">{$item->crossDockName}</crossDockName>
+	<deliveryToDc n:ifset="$item->deliveryToDc">{$item->deliveryToDc->format('c')}</deliveryToDc>
+	<carNumber n:ifset="$item->carNumber">{$item->carNumber}</carNumber>
+	<packagePickUpType n:ifset="$item->packagePickUpType">{$item->packagePickUpType}</packagePickUpType>
+
+	<sendName>{$item->sender->name}</sendName>
+	<sendStreet>{$item->sender->street}</sendStreet>
+	<sendStreetNumOri n:ifset="$item->sender->streetNumOri">{$item->sender->streetNumOri}</sendStreetNumOri>
+	<sendStreetNumDesc n:ifset="$item->sender->streetNumDesc">{$item->sender->streetNumDesc}</sendStreetNumDesc>
+	<sendCity>{$item->sender->City}</sendCity>
+	<sendZipCode>{$item->sender->ZipCode}</sendZipCode>
+	<sendCountry>{$item->sender->Country}</sendCountry>
+	<sendContactName n:ifset="$item->sender->ContactName">{$item->sender->ContactName}</sendContactName>
+	<sendContactEmail n:ifset="$item->sender->ContactEmail">{$item->sender->ContactEmail}</sendContactEmail>
+	<sendContactPhone n:ifset="$item->sender->ContactPhone">{$item->sender->ContactPhone}</sendContactPhone>
+
+	{if $item->isUsePrintSend()}
+		<usePrintSend>1</usePrintSend>
+		<printSendName>{$item->printSend->name}</printSendName>
+		<printSendStreet>{$item->printSend->street}</printSendStreet>
+		<printSendStreetNumOri n:ifset="$item->printSend->streetNumOri">{$item->printSend->streetNumOri}</printSendStreetNumOri>
+		<printSendStreetNumDesc n:ifset="$item->printSend->streetNumDesc">{$item->printSend->streetNumDesc}</printSendStreetNumDesc>
+		<printSendCity>{$item->printSend->City}</printSendCity>
+		<printSendZipCode>{$item->printSend->ZipCode}</printSendZipCode>
+		<printSendCountry>{$item->printSend->Country}</printSendCountry>
+		<printSendContactPhone n:ifset="$item->printSend->ContactPhone">{$item->printSend->ContactPhone}</printSendContactPhone>
+	{/if}
+
+	{if $item->isUseRec()}
+		<recName>{$item->rec->name}</recName>
+		<recStreet>{$item->rec->street}</recStreet>
+		<recStreetNumOri n:ifset="$item->rec->streetNumOri">{$item->rec->streetNumOri}</recStreetNumOri>
+		<recStreetNumDesc n:ifset="$item->rec->streetNumDesc">{$item->rec->streetNumDesc}</recStreetNumDesc>
+		<recCity>{$item->rec->City}</recCity>
+		<recZipCode>{$item->rec->ZipCode}</recZipCode>
+		<recCountry>{$item->rec->Country}</recCountry>
+		<recContactName n:ifset="$item->rec->ContactName">{$item->rec->ContactName}</recContactName>
+		<recContactEmail n:ifset="$item->rec->ContactEmail">{$item->rec->ContactEmail}</recContactEmail>
+		<recContactPhone n:ifset="$item->rec->ContactPhone">{$item->rec->ContactPhone}</recContactPhone>
+	{/if}
+	<recNote n:ifset="$item->recNote">{$item->recNote}</recNote>
+
+	<deliveryNote n:ifset="$item->deliveryNote">{$item->deliveryNote}</deliveryNote>
+	<addCode>{$item->addCode}</addCode>
+
+	<pasName>{$item->pasName}</pasName>
+
+	<pickUpDate>{$item->pickUpDate->format('c')}</pickUpDate>
+	<pickUpMinutesFrom>{$item->pickUpMinutesFrom}</pickUpMinutesFrom>
+	<pickUpMinutesTo>{$item->pickUpMinutesTo}</pickUpMinutesTo>
+
+	<routingCodeInput>{$item->routingCodeInput}</routingCodeInput>
+	<routingCodeOutput>{$item->routingCodeOutput}</routingCodeOutput>
+
+	<depIdIn>{$item->depIdIn}</depIdIn>
+	<depIdOut>{$item->depIdOut}</depIdOut>
+
+	<backInfoEmail n:if="$item->backInfoEmail">{$item->backInfoEmail}</backInfoEmail>
+
+	<created>{$item->created}</created>
+	<createdByName>{$item->createdByName}</createdByName>
+	<changed>{$item->changed}</changed>
+	<changedByName>{$item->changedByName}</changedByName>
+
+	<services n:ifset="$item->services">
+		<ADL n:ifset="$item->services->ADL">
+			<email>{$item->services->ADL->email}</email>
+		</ADL>
+		<ADZ n:ifset="$item->services->ADZ">
+			<phoneOrEmail>{$item->services->ADZ->phoneOrEmail}</phoneOrEmail>
+		</ADZ>
+		<AOZ n:ifset="$item->services->AOZ">
+			<phoneOrEmail>{$item->services->AOZ->phoneOrEmail}</phoneOrEmail>
+		</AOZ>
+		<APZ n:ifset="$item->services->APZ">
+			<phoneOrEmail>{$item->services->APZ->phoneOrEmail}</phoneOrEmail>
+		</APZ>
+		<B2C n:ifset="$item->services->B2C">
+			<phone>{$item->services->B2C->phone}</phone>
+		</B2C>
+		<COD n:ifset="$item->services->COD">
+			<codValue>{$item->services->COD->value}</codValue>
+			<codValueCur>{$item->services->COD->valueCur}</codValueCur>
+			<varCode>{$item->services->COD->varCode}</varCode>
+		</COD>
+		<D12 n:if="$item->services->D12" />
+		<EXW n:if="$item->services->exWorks" />
+		<GAR n:if="$item->services->gar" />
+		<POJ n:ifset="$item->services->insurance">
+			<insValue>{$item->services->insurance->value}</insValue>
+			<insValueCur>{$item->services->insurance->valueCur}</insValueCur>
+		</POJ>
+		<SMS n:if="$item->services->sms" />
+		<EMA n:if="$item->services->ema" />
+		<TEL n:if="$item->services->tel">
+			<phone>{$item->services->tel}</phone>
+		</TEL>
+		<PBC n:if="$item->services->pbc" />
+	</services>
+
+	<rows n:if="!empty($item->rows)">
+		<row n:foreach="$item->rows as $row">
+			<note>{$row->note}</note>
+			<lPackTyp n:if="$row->lPackType">{$row->lPackType}</lPackTyp>
+			<count>{$row->count}</count>
+			<weight>{$row->weight}</weight>
+			<volume n:if="$row->volume">{$row->volume}</volume>
+
+			<created>{$row->created}</created>
+			<createdByName>{$row->createdByName}</createdByName>
+			<changed>{$row->changed}</changed>
+			<changedByName>{$row->changedByName}</changedByName>
+
+			<numbers n:if="!empty($row->numbers)">
+				<number n:foreach="$row->numbers as $number">
+					<packRowNumber>{$number->packRowNumber}</packRowNumber>
+					<created>{$number->created}</created>
+					<createdByName>{$number->createdByName}</createdByName>
+					<changed>{$number->changed}</changed>
+					<changedByName>{$number->changedByName}</changedByName>
+				</number>
+			</numbers>
+		</row>
+	</rows>
+
+</Package>

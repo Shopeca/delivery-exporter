@@ -9,6 +9,8 @@ use Nette;
  */
 class Row extends Nette\Object {
 
+	use Updatable;
+
 	/** @var string */
 	private $note;
 
@@ -23,18 +25,6 @@ class Row extends Nette\Object {
 
 	/** @var string */
 	private $volume; // For cargo only
-
-	/** @var string|DateTime */
-	private $created;
-
-	/** @var string */
-	private $createdByName;
-
-	/** @var string|DateTime */
-	private $changed;
-
-	/** @var string */
-	private $changedByName;
 
 	/** @var Numbers[] */
 	private $numbers;
@@ -120,70 +110,6 @@ class Row extends Nette\Object {
 	}
 
 	/**
-	 * @return DateTime|string
-	 */
-	public function getCreated () {
-		return $this->created;
-	}
-
-	/**
-	 * @param DateTime|string $created
-	 * @return Row
-	 */
-	public function setCreated ( $created ) {
-		$this->created = $created;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getCreatedByName () {
-		return $this->createdByName;
-	}
-
-	/**
-	 * @param string $createdByName
-	 * @return Row
-	 */
-	public function setCreatedByName ( $createdByName ) {
-		$this->createdByName = $createdByName;
-		return $this;
-	}
-
-	/**
-	 * @return DateTime|string
-	 */
-	public function getChanged () {
-		return $this->changed;
-	}
-
-	/**
-	 * @param DateTime|string $changed
-	 * @return Row
-	 */
-	public function setChanged ( $changed ) {
-		$this->changed = $changed;
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getChangedByName () {
-		return $this->changedByName;
-	}
-
-	/**
-	 * @param string $changedByName
-	 * @return Row
-	 */
-	public function setChangedByName ( $changedByName ) {
-		$this->changedByName = $changedByName;
-		return $this;
-	}
-
-	/**
 	 * @return Numbers[]
 	 */
 	public function getNumbers () {
@@ -191,11 +117,11 @@ class Row extends Nette\Object {
 	}
 
 	/**
-	 * @param Numbers[] $numbers
+	 * @param Number[] $numbers
 	 * @return Row
 	 */
-	public function setNumbers ( $numbers ) {
-		$this->numbers = $numbers;
+	public function addNumber ( Number $number ) {
+		$this->numbers[] = $number;
 		return $this;
 	}
 

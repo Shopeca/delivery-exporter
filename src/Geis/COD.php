@@ -26,7 +26,7 @@ class COD extends Nette\Object {
 	public function __construct($value, $valueCur, $varCode)
 	{
 		$this->value = (float)$value;
-		$this->varCode = (float)$varCode;
+		$this->valueCur = (float)$valueCur;
 		$this->varCode = (int)$varCode;
 	}
 
