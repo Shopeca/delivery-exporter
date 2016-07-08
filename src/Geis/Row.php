@@ -21,7 +21,7 @@ class Row extends Nette\Object {
 	private $count;
 
 	/** @var int @required */
-	private $weigh;
+	private $weight;
 
 	/** @var string */
 	private $volume; // For cargo only
@@ -80,16 +80,16 @@ class Row extends Nette\Object {
 	/**
 	 * @return int
 	 */
-	public function getWeigh () {
-		return $this->weigh;
+	public function getWeight () {
+		return $this->weight;
 	}
 
 	/**
-	 * @param int $weigh
+	 * @param int $weight
 	 * @return Row
 	 */
-	public function setWeigh ( $weigh ) {
-		$this->weigh = $weigh;
+	public function setWeight ( $weight ) {
+		$this->weight = $weight;
 		return $this;
 	}
 

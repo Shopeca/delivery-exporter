@@ -1,5 +1,5 @@
 {
-    "name": "xom/delivery-exporter",
+    "name": "shopeca/delivery-exporter",
     "authors": [
         {
             "name": "Tom Hnatovsky",
@@ -13,6 +13,11 @@
 		}
 	],
     "require": {
-		"Shopeca/xml-generator": "dev-master"
+		"Shopeca/xml-generator": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Shopeca\\XML\\Delivery\\": "src/"
+		}
 	}
 }

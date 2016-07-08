@@ -3,59 +3,59 @@
 	<isCargo>{$item->deliveryType}</isCargo>
 	<back>{$item->documentType}</back>
 
-	<number n:ifset="$item->number">{$item->number}</number>
-	<customerReference n:ifset="$item->customerReference">{$item->customerReference}</customerReference>
-	<documentNumber n:ifset="$item->documentNumber">{$item->documentNumber}</documentNumber>
-	<dpCode n:ifset="$item->dpCode">{$item->dpCode}</dpCode>
-	<notFillRecDp n:ifset="$item->notFillRecDp">{$item->notFillRecDp}</notFillRecDp>
-	<crossDockName n:ifset="$item->crossDockName">{$item->crossDockName}</crossDockName>
-	<deliveryToDc n:ifset="$item->deliveryToDc">{$item->deliveryToDc->format('c')}</deliveryToDc>
-	<carNumber n:ifset="$item->carNumber">{$item->carNumber}</carNumber>
-	<packagePickUpType n:ifset="$item->packagePickUpType">{$item->packagePickUpType}</packagePickUpType>
+	<number n:if="$item->number">{$item->number}</number>
+	<customerReference n:if="$item->customerReference">{$item->customerReference}</customerReference>
+	<documentNumber n:if="$item->documentNumber">{$item->documentNumber}</documentNumber>
+	<dpCode n:if="$item->dpCode">{$item->dpCode}</dpCode>
+	<notFillRecDp n:if="$item->notFillRecDp">{$item->notFillRecDp}</notFillRecDp>
+	<crossDockName n:if="$item->crossDockName">{$item->crossDockName}</crossDockName>
+	<deliveryToDc n:if="$item->deliveryToDc">{$item->deliveryToDc->format('c')}</deliveryToDc>
+	<carNumber n:if="$item->carNumber">{$item->carNumber}</carNumber>
+	<packagePickUpType n:if="$item->packagePickUpType">{$item->packagePickUpType}</packagePickUpType>
 
 	<sendName>{$item->sender->name}</sendName>
 	<sendStreet>{$item->sender->street}</sendStreet>
-	<sendStreetNumOri n:ifset="$item->sender->streetNumOri">{$item->sender->streetNumOri}</sendStreetNumOri>
-	<sendStreetNumDesc n:ifset="$item->sender->streetNumDesc">{$item->sender->streetNumDesc}</sendStreetNumDesc>
+	<sendStreetNumOri n:if="$item->sender->streetNumOri">{$item->sender->streetNumOri}</sendStreetNumOri>
+	<sendStreetNumDesc n:if="$item->sender->streetNumDesc">{$item->sender->streetNumDesc}</sendStreetNumDesc>
 	<sendCity>{$item->sender->City}</sendCity>
 	<sendZipCode>{$item->sender->ZipCode}</sendZipCode>
 	<sendCountry>{$item->sender->Country}</sendCountry>
-	<sendContactName n:ifset="$item->sender->ContactName">{$item->sender->ContactName}</sendContactName>
-	<sendContactEmail n:ifset="$item->sender->ContactEmail">{$item->sender->ContactEmail}</sendContactEmail>
-	<sendContactPhone n:ifset="$item->sender->ContactPhone">{$item->sender->ContactPhone}</sendContactPhone>
+	<sendContactName n:if="$item->sender->ContactName">{$item->sender->ContactName}</sendContactName>
+	<sendContactEmail n:if="$item->sender->ContactEmail">{$item->sender->ContactEmail}</sendContactEmail>
+	<sendContactPhone n:if="$item->sender->ContactPhone">{$item->sender->ContactPhone}</sendContactPhone>
 
 	{if $item->isUsePrintSend()}
 		<usePrintSend>1</usePrintSend>
 		<printSendName>{$item->printSend->name}</printSendName>
 		<printSendStreet>{$item->printSend->street}</printSendStreet>
-		<printSendStreetNumOri n:ifset="$item->printSend->streetNumOri">{$item->printSend->streetNumOri}</printSendStreetNumOri>
-		<printSendStreetNumDesc n:ifset="$item->printSend->streetNumDesc">{$item->printSend->streetNumDesc}</printSendStreetNumDesc>
+		<printSendStreetNumOri n:if="$item->printSend->streetNumOri">{$item->printSend->streetNumOri}</printSendStreetNumOri>
+		<printSendStreetNumDesc n:if="$item->printSend->streetNumDesc">{$item->printSend->streetNumDesc}</printSendStreetNumDesc>
 		<printSendCity>{$item->printSend->City}</printSendCity>
 		<printSendZipCode>{$item->printSend->ZipCode}</printSendZipCode>
 		<printSendCountry>{$item->printSend->Country}</printSendCountry>
-		<printSendContactPhone n:ifset="$item->printSend->ContactPhone">{$item->printSend->ContactPhone}</printSendContactPhone>
+		<printSendContactPhone n:if="$item->printSend->ContactPhone">{$item->printSend->ContactPhone}</printSendContactPhone>
 	{/if}
 
 	{if $item->isUseRec()}
 		<recName>{$item->rec->name}</recName>
 		<recStreet>{$item->rec->street}</recStreet>
-		<recStreetNumOri n:ifset="$item->rec->streetNumOri">{$item->rec->streetNumOri}</recStreetNumOri>
-		<recStreetNumDesc n:ifset="$item->rec->streetNumDesc">{$item->rec->streetNumDesc}</recStreetNumDesc>
+		<recStreetNumOri n:if="$item->rec->streetNumOri">{$item->rec->streetNumOri}</recStreetNumOri>
+		<recStreetNumDesc n:if="$item->rec->streetNumDesc">{$item->rec->streetNumDesc}</recStreetNumDesc>
 		<recCity>{$item->rec->City}</recCity>
 		<recZipCode>{$item->rec->ZipCode}</recZipCode>
 		<recCountry>{$item->rec->Country}</recCountry>
-		<recContactName n:ifset="$item->rec->ContactName">{$item->rec->ContactName}</recContactName>
-		<recContactEmail n:ifset="$item->rec->ContactEmail">{$item->rec->ContactEmail}</recContactEmail>
-		<recContactPhone n:ifset="$item->rec->ContactPhone">{$item->rec->ContactPhone}</recContactPhone>
+		<recContactName n:if="$item->rec->ContactName">{$item->rec->ContactName}</recContactName>
+		<recContactEmail n:if="$item->rec->ContactEmail">{$item->rec->ContactEmail}</recContactEmail>
+		<recContactPhone n:if="$item->rec->ContactPhone">{$item->rec->ContactPhone}</recContactPhone>
 	{/if}
-	<recNote n:ifset="$item->recNote">{$item->recNote}</recNote>
+	<recNote n:if="$item->recNote">{$item->recNote}</recNote>
 
-	<deliveryNote n:ifset="$item->deliveryNote">{$item->deliveryNote}</deliveryNote>
-	<addCode>{$item->addCode}</addCode>
+	<deliveryNote n:if="$item->deliveryNote">{$item->deliveryNote}</deliveryNote>
+	<addrCode>{$item->addrCode}</addrCode>
 
 	<pasName>{$item->pasName}</pasName>
 
-	<pickUpDate>{$item->pickUpDate->format('c')}</pickUpDate>
+	<pickUpDate>{if $item->pickUpDate}{$item->pickUpDate->format('c')}{/if}</pickUpDate>
 	<pickUpMinutesFrom>{$item->pickUpMinutesFrom}</pickUpMinutesFrom>
 	<pickUpMinutesTo>{$item->pickUpMinutesTo}</pickUpMinutesTo>
 
@@ -72,23 +72,23 @@
 	<changed>{$item->changed}</changed>
 	<changedByName>{$item->changedByName}</changedByName>
 
-	<services n:ifset="$item->services">
-		<ADL n:ifset="$item->services->ADL">
+	<services n:if="$item->services">
+		<ADL n:if="$item->services->ADL">
 			<email>{$item->services->ADL->email}</email>
 		</ADL>
-		<ADZ n:ifset="$item->services->ADZ">
+		<ADZ n:if="$item->services->ADZ">
 			<phoneOrEmail>{$item->services->ADZ->phoneOrEmail}</phoneOrEmail>
 		</ADZ>
-		<AOZ n:ifset="$item->services->AOZ">
+		<AOZ n:if="$item->services->AOZ">
 			<phoneOrEmail>{$item->services->AOZ->phoneOrEmail}</phoneOrEmail>
 		</AOZ>
-		<APZ n:ifset="$item->services->APZ">
+		<APZ n:if="$item->services->APZ">
 			<phoneOrEmail>{$item->services->APZ->phoneOrEmail}</phoneOrEmail>
 		</APZ>
-		<B2C n:ifset="$item->services->B2C">
+		<B2C n:if="$item->services->B2C">
 			<phone>{$item->services->B2C->phone}</phone>
 		</B2C>
-		<COD n:ifset="$item->services->COD">
+		<COD n:if="$item->services->COD">
 			<codValue>{$item->services->COD->value}</codValue>
 			<codValueCur>{$item->services->COD->valueCur}</codValueCur>
 			<varCode>{$item->services->COD->varCode}</varCode>
@@ -96,9 +96,9 @@
 		<D12 n:if="$item->services->D12" />
 		<EXW n:if="$item->services->exWorks" />
 		<GAR n:if="$item->services->gar" />
-		<POJ n:ifset="$item->services->insurance">
-			<insValue>{$item->services->insurance->value}</insValue>
-			<insValueCur>{$item->services->insurance->valueCur}</insValueCur>
+		<POJ n:if="$item->services->poj">
+			<insValue>{$item->services->poj->value}</insValue>
+			<insValueCur>{$item->services->poj->valueCur}</insValueCur>
 		</POJ>
 		<SMS n:if="$item->services->sms" />
 		<EMA n:if="$item->services->ema" />
@@ -111,7 +111,7 @@
 	<rows n:if="!empty($item->rows)">
 		<row n:foreach="$item->rows as $row">
 			<note>{$row->note}</note>
-			<lPackTyp n:if="$row->lPackType">{$row->lPackType}</lPackTyp>
+			<lPacTyp n:if="$row->lPacType">{$row->lPacType}</lPacTyp>
 			<count>{$row->count}</count>
 			<weight>{$row->weight}</weight>
 			<volume n:if="$row->volume">{$row->volume}</volume>

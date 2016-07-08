@@ -3,7 +3,7 @@ namespace Shopeca\XML\Delivery\Geis;
 
 use Shopeca\XML\Generators\BaseGenerator;
 
-abstract class Exporter extends BaseGenerator {
+class Exporter extends BaseGenerator {
 
 	/**
 	 * @param $name
@@ -11,8 +11,11 @@ abstract class Exporter extends BaseGenerator {
 	 */
 	protected function getTemplate($name)
 	{
-		$reflection = new \ReflectionClass(__CLASS__);
-		return dirname($reflection->getFileName()) . '/latte/' . $name . '.latte';
+		return __DIR__ . '/latte/' . $name . '.latte';
+	}
+
+	public function generate () {
+		// Here might go some processing before the file is created
 	}
 
 }
