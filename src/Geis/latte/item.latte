@@ -62,15 +62,15 @@
 	<routingCodeInput>{$item->routingCodeInput}</routingCodeInput>
 	<routingCodeOutput>{$item->routingCodeOutput}</routingCodeOutput>
 
-	<depIdIn>{$item->depIdIn}</depIdIn>
-	<depIdOut>{$item->depIdOut}</depIdOut>
+	<depIdIn n:if="$item->depIdIn">{$item->depIdIn}</depIdIn>
+	<depIdOut n:if="$item->depIdOut">{$item->depIdOut}</depIdOut>
 
 	<backInfoEmail n:if="$item->backInfoEmail">{$item->backInfoEmail}</backInfoEmail>
 
-	<created>{$item->created}</created>
-	<createdByName>{$item->createdByName}</createdByName>
-	<changed>{$item->changed}</changed>
-	<changedByName>{$item->changedByName}</changedByName>
+	<created n:if="$item->created">{$item->created}</created>
+	<createdByName n:if="$item->createdByName">{$item->createdByName}</createdByName>
+	<changed n:if="$item->changed">{$item->changed}</changed>
+	<changedByName n:if="$item->changedByName">{$item->changedByName}</changedByName>
 
 	<services n:if="$item->services">
 		<ADL n:if="$item->services->ADL">
