@@ -114,12 +114,15 @@
 			<lPacTyp n:if="$row->lPacType">{$row->lPacType}</lPacTyp>
 			<count>{$row->count}</count>
 			<weight>{$row->weight}</weight>
-			<volume n:if="$row->volume">{$row->volume}</volume>
+			<volume>{$row->volume}</volume>
 
-			<created>{$row->created}</created>
-			<createdByName>{$row->createdByName}</createdByName>
-			<changed>{$row->changed}</changed>
-			<changedByName>{$row->changedByName}</changedByName>
+			<length n:if="$row->length">{$row->length}</length>
+			<width n:if="$row->width">{$row->width}</width>
+
+			<created n:if="$row->created">{$row->created}</created>
+			<createdByName n:if="$row->createdByName">{$row->createdByName}</createdByName>
+			<changed n:if="$row->changed">{$row->changed}</changed>
+			<changedByName n:if="$row->changedByName">{$row->changedByName}</changedByName>
 
 			<numbers n:if="!empty($row->numbers)">
 				<number n:foreach="$row->numbers as $number">

@@ -20,8 +20,14 @@ class Row extends Nette\Object {
 	/** @var int @required */
 	private $count;
 
-	/** @var int @required */
+	/** @var float @required */
 	private $weight;
+
+	/** @var float */
+	private $length;
+
+	/** @var float */
+	private $width;
 
 	/** @var string */
 	private $volume; // For cargo only
@@ -78,18 +84,50 @@ class Row extends Nette\Object {
 	}
 
 	/**
-	 * @return int
+	 * @return float
 	 */
 	public function getWeight () {
 		return $this->weight;
 	}
 
 	/**
-	 * @param int $weight
+	 * @param float $weight
 	 * @return Row
 	 */
 	public function setWeight ( $weight ) {
 		$this->weight = $weight;
+		return $this;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getLength () {
+		return $this->length;
+	}
+
+	/**
+	 * @param float $length
+	 * @return Row
+	 */
+	public function setLength ( $length ) {
+		$this->length = $length;
+		return $this;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getWidth () {
+		return $this->width;
+	}
+
+	/**
+	 * @param float $width
+	 * @return Row
+	 */
+	public function setWidth ( $width ) {
+		$this->width = $width;
 		return $this;
 	}
 
