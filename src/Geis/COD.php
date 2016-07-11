@@ -15,7 +15,7 @@ class COD extends Nette\Object {
 	/** @var string */
 	private $valueCur; // Currency ISO 4217
 
-	/** @var int */
+	/** @var string */
 	private $varCode;
 
 	/**
@@ -26,8 +26,8 @@ class COD extends Nette\Object {
 	public function __construct($value, $valueCur, $varCode)
 	{
 		$this->value = (float)$value;
-		$this->valueCur = (float)$valueCur;
-		$this->varCode = (int)$varCode;
+		$this->valueCur = $valueCur;
+		$this->varCode = $varCode;
 	}
 
 	/**
@@ -45,7 +45,7 @@ class COD extends Nette\Object {
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getVarCode () {
 		return $this->varCode;
