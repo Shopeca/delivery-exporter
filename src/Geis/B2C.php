@@ -24,7 +24,7 @@ class B2C extends Nette\Object {
 	/**
 	 * @return string
 	 */
-	public function getEmail()
+	public function getPhone()
 	{
 		return $this->phone;
 	}
