@@ -1,0 +1,136 @@
+{contentType xml}
+<order>
+	<label>{$item->label}</label>
+	<var_symbol>{$item->varSymbol}</var_symbol>
+
+	<payer_select>{$item->payerSelect}</payer_select>
+	<loading_select>{$item->loadingSelect}</loading_select>
+	<term_id>{$item->termId}</term_id>
+
+	<loading_date n:if="$item->loadingDate">{$item->loadingDate}</loading_date>
+	<loading_time_from n:if="$item->loadingTimeFrom">{$item->loadingTimeFrom}</loading_time_from>
+	<loading_time_to n:if="$item->loadingTimeTo">{$item->loadingTimeTo}</loading_time_to>
+
+	<discharge_date n:if="$item->dischargeDate">{$item->dischargeDate}</discharge_date>
+	<discharge_time_from n:if="$item->dischargeTimeFrom">{$item->dischargeTimeFrom}</discharge_time_from>
+	<discharge_time_to n:if="$item->dischargeTimeTo">{$item->dischargeTimeTo}</discharge_time_to>
+
+	<loading_personal_branch_id n:if="$item->loadingPersonalBranchId">{$item->loadingPersonalBranchId}</loading_personal_branch_id>
+	<discharge_personal_branch_id n:if="$item->dischargePersonalBranchId">{$item->dischargePersonalBranchId}</discharge_personal_branch_id>
+
+	<payer n:if="$item->payer">
+		<address n:if="$item->payer->address">
+			<country>{$item->payer->address->country}</country>
+			<region>{$item->payer->address->region}</region>
+			<city>{$item->payer->address->city}</city>
+			<city_part>{$item->payer->address->cityPart}</city_part>
+			<street>{$item->payer->address->street}</street>
+			<house_num>{$item->payer->address->houseNum}</house_num>
+			<zip>{$item->payer->address->zip}</zip>
+		</address>
+		<name>{$item->payer->name}</name>
+		<registration_code>{$item->payer->registrationCode}</registration_code>
+		<vat_code>{$item->payer->vatCode}</vat_code>
+		<first_name>{$item->payer->firstName}</first_name>
+		<last_name>{$item->payer->lastName}</last_name>
+		<phone>{$item->payer->phone}</phone>
+		<email>{$item->payer->email}</email>
+	</payer>
+
+	<loading n:if="$item->loading">
+		<address n:if="$item->loading->address">
+			<country>{$item->loading->address->country}</country>
+			<region>{$item->loading->address->region}</region>
+			<city>{$item->loading->address->city}</city>
+			<city_part>{$item->loading->address->cityPart}</city_part>
+			<street>{$item->loading->address->street}</street>
+			<house_num>{$item->loading->address->houseNum}</house_num>
+			<zip>{$item->loading->address->zip}</zip>
+		</address>
+		<name>{$item->loading->name}</name>
+		<registration_code>{$item->loading->registrationCode}</registration_code>
+		<vat_code>{$item->loading->vatCode}</vat_code>
+		<first_name>{$item->loading->firstName}</first_name>
+		<last_name>{$item->loading->lastName}</last_name>
+		<phone>{$item->loading->phone}</phone>
+		<email>{$item->loading->email}</email>
+	</loading>
+
+	<discharge n:if="$item->discharge">
+		<address n:if="$item->discharge->address">
+			<country>{$item->discharge->address->country}</country>
+			<region>{$item->discharge->address->region}</region>
+			<city>{$item->discharge->address->city}</city>
+			<city_part>{$item->discharge->address->cityPart}</city_part>
+			<street>{$item->discharge->address->street}</street>
+			<house_num>{$item->discharge->address->houseNum}</house_num>
+			<zip>{$item->discharge->address->zip}</zip>
+		</address>
+		<name>{$item->discharge->name}</name>
+		<registration_code>{$item->discharge->registrationCode}</registration_code>
+		<vat_code>{$item->discharge->vatCode}</vat_code>
+		<first_name>{$item->discharge->firstName}</first_name>
+		<last_name>{$item->discharge->lastName}</last_name>
+		<phone>{$item->discharge->phone}</phone>
+		<email>{$item->discharge->email}</email>
+	</discharge>
+
+	<loading_comfort_id n:if="$item->loadingComfortId">{$item->loadingComfortId}</loading_comfort_id>
+	<discharge_comfort_id n:if="$item->dischargeComfortId">{$item->dischargeComfortId}</discharge_comfort_id>
+
+	<twoway_shipment>{$item->twowayShipment ? '1' : '0'}</twoway_shipment>
+	<twoway_shipment_description n:if="$item->twowayShipmentDescription">{$item->twowayShipmentDescription}</twoway_shipment_description>
+
+	<yard>{$item->yard ? '1' : '0'}</yard>
+
+	<delivery_notes_back>{$item->deliveryNotesBack}</delivery_notes_back>
+	<euro_pallets_back>{$item->euroPalletsBack ? '1' : '0'}</euro_pallets_back>
+	<loading_aviso>{$item->loadingAviso ? '1' : '0'}</loading_aviso>
+	<discharge_aviso>{$item->dischargeAviso ? '1' : '0'}</discharge_aviso>
+	<aviso_sms>{$item->avisoSms ? '1' : '0'}</aviso_sms>
+	<consider>{$item->consider ? '1' : '0'}</consider>
+	<oversize>{$item->oversize ? '1' : '0'}</oversize>
+	<label_fragile>{$item->labelFragile ? '1' : '0'}</label_fragile>
+	<label_dont_tilt>{$item->labelDontTilt ? '1' : '0'}</label_dont_tilt>
+	<label_this_side_up>{$item->labelThisSideUp ? '1' : '0'}</label_this_side_up>
+	<hydraulic_front_loading>{$item->hydraulicFrontLoading ? '1' : '0'}</hydraulic_front_loading>
+	<hydraulic_front_discharge>{$item->hydraulicFrontDischarge ? '1' : '0'}</hydraulic_front_discharge>
+
+	<cash_on_delivery n:if="$item->cashOnDelivery">
+		<type>{$item->cashOnDelivery->type}</type>
+		<price>{$item->cashOnDelivery->price}</price>
+		<price_cur_id>{$item->cashOnDelivery->priceCurId}</price_cur_id>
+		<account1>{$item->cashOnDelivery->account1}</account1>
+		<account2>{$item->cashOnDelivery->account2}</account2>
+		<bank>{$item->cashOnDelivery->bank}</bank>
+	</cash_on_delivery>
+
+	<kg n:if="$item->kg">{$item->kg}</kg>
+	<m3 n:if="$item->m3">{$item->m3}</m3>
+	<dimensions_d n:if="$item->dimensionsD">{$item->dimensionsD}</dimensions_d>
+	<dimensions_s n:if="$item->dimensionsS">{$item->dimensionsS}</dimensions_s>
+	<dimensions_v n:if="$item->dimensionsV">{$item->dimensionsV}</dimensions_v>
+
+	<order_value n:if="$item->orderValue">{$item->orderValue}</order_value>
+	<order_value_currency_id n:if="$item->orderValueCurrencyId">{$item->orderValueCurrencyId}</order_value_currency_id>
+
+	<note_loading n:if="$item->noteLoading">{$item->noteLoading}</note_loading>
+	<note_discharge n:if="$item->noteDischarge">{$item->noteDischarge}</note_discharge>
+
+	<packs n:if="!empty($item->packs)">
+		<pack n:foreach="$item->packs as $pack">
+			<quantity>{$pack->quantity}</quantity>
+			<pack_id>{$pack->packId}</pack_id>
+			<description>{$pack->description}</description>
+		</pack>
+	</packs>
+
+	<adrs n:if="!empty($item->adrs)">
+		<adr n:foreach="$item->adrs as $adr">
+			<un>{$adr->un}</un>
+			<count>{$adr->count}</count>
+			<kg>{$adr->kg}</kg>
+			<environment_danger>{$adr->environmentDanger}</environment_danger>
+		</adr>
+	</adrs>
+</order>
