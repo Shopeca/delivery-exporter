@@ -165,6 +165,9 @@ class Item extends BaseItem {
 	private $orderValueCurrency;
 
 	/** @var string */
+	private $orderValueCurrencyId;
+
+	/** @var string */
 	private $noteLoading;
 
 	/** @var string */
@@ -829,6 +832,22 @@ class Item extends BaseItem {
 	 */
 	public function setOrderValueCurrency ($orderValueCurrency) {
 		$this->orderValueCurrency = $orderValueCurrency;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getOrderValueCurrencyId () {
+		return $this->orderValueCurrencyId;
+	}
+
+	/**
+	 * @param string $orderValueCurrencyId
+	 * @return Item
+	 */
+	public function setOrderValueCurrencyId ($orderValueCurrencyId) {
+		$this->orderValueCurrencyId = $orderValueCurrencyId;
 		return $this;
 	}
 
