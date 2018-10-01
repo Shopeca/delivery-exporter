@@ -105,6 +105,9 @@ class Item extends BaseItem {
 	private $loadingAviso = false;
 
 	/** @var bool */
+	private $dischargeAviso = false;
+
+	/** @var bool */
 	private $avisoSms = false;
 
 	/** @var bool */
@@ -554,6 +557,22 @@ class Item extends BaseItem {
 	 */
 	public function setLoadingAviso ($loadingAviso) {
 		$this->loadingAviso = $loadingAviso;
+		return $this;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isDischargeAviso () {
+		return $this->dischargeAviso;
+	}
+
+	/**
+	 * @param bool $dischargeAviso
+	 * @return Item
+	 */
+	public function setDischargeAviso ($dischargeAviso) {
+		$this->dischargeAviso = $dischargeAviso;
 		return $this;
 	}
 
