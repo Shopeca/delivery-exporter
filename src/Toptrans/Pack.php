@@ -2,12 +2,15 @@
 namespace Shopeca\XML\Delivery\Toptrans;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * @package Shopeca\XML\Delivery\Toptrans
  */
-class Pack extends Nette\Object {
+class Pack
+{
 
+	use SmartObject;
 
 	/** @var int */
 	private $quantity;

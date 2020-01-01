@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class Insurance
  * @package Shopeca\XML\Delivery\Geis
  */
-class Insurance extends Nette\Object {
+class Insurance
+{
+
+	use SmartObject;
 
 	/** @var float */
 	private $value;

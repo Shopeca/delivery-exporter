@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class COD - Cash on delivery
  * @package Shopeca\XML\Delivery\Geis
  */
-class COD extends Nette\Object {
+class COD
+{
+
+	use SmartObject;
 
 	/** @var float */
 	private $value;

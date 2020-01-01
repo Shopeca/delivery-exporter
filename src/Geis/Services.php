@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class Services
  * @package Shopeca\XML\Delivery\Geis
  */
-class Services extends Nette\Object {
+class Services
+{
+
+	use SmartObject;
 
 	/** @var ADL */
 	private $ADL;

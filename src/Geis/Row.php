@@ -2,13 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class Row
  * @package Shopeca\XML\Delivery\Geis
  */
-class Row extends Nette\Object {
+class Row
+{
 
+	use SmartObject;
 	use Updatable;
 
 	/** @var string */

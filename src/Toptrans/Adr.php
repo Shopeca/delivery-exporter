@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Toptrans;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Adr - nebezpečné látky
  * @package Shopeca\XML\Delivery\Toptrans
  */
-class Adr extends Nette\Object {
+class Adr
+{
+
+	use SmartObject;
 
 	/**
 	 * ADR UN - číselník

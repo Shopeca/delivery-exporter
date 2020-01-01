@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class ADZ - Avízo doručené zásilky
  * @package Shopeca\XML\Delivery\Geis
  */
-class ADZ extends Nette\Object {
+class ADZ
+{
+
+	use SmartObject;
 
 	/** @var string */
 	private $phoneOrEmail;

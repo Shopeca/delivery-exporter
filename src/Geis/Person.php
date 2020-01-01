@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class Person
  * @package Shopeca\XML\Delivery\Geis
  */
-class Person extends Nette\Object {
+class Person
+{
+
+	use SmartObject;
 
 	/** @var string @required */
 	protected $name;

@@ -2,11 +2,15 @@
 namespace Shopeca\XML\Delivery\Toptrans;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * @package Shopeca\XML\Delivery\Toptrans
  */
-class CashOnDelivery extends Nette\Object {
+class CashOnDelivery
+{
+
+	use SmartObject;
 
 	const TYPE_INLAND = 1;
 	const TYPE_FOLDOUT = 2;

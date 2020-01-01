@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class ADL - Avízo naskenované doručovací listiny
  * @package Shopeca\XML\Delivery\Geis
  */
-class ADL extends Nette\Object {
+class ADL
+{
+
+	use SmartObject;
 
 	/** @var string */
 	private $email;

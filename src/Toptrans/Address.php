@@ -2,12 +2,16 @@
 namespace Shopeca\XML\Delivery\Toptrans;
 
 use Nette;
+use Nette\SmartObject;
 
 /**
  * Class Address
  * @package Shopeca\XML\Delivery\Toptrans
  */
-class Address extends Nette\Object {
+class Address
+{
+
+	use SmartObject;
 
 	/** @var string */
 	private $country;
