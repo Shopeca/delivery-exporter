@@ -1,6 +1,7 @@
 <?php
 namespace Shopeca\XML\Delivery\Toptrans;
 
+use Shopeca\XML\Delivery\UpdatableTrait;
 use Shopeca\XML\Generators\BaseItem;
 
 /**

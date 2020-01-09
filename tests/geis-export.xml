@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPackage>
+  <Package>
+    <isCargo>1</isCargo>
+    <back>0</back>
+    <sendName>Velký e-shop největší</sendName>
+    <sendStreet>Obchodní</sendStreet>
+    <sendStreetNumOri>12</sendStreetNumOri>
+    <sendStreetNumDesc>20</sendStreetNumDesc>
+    <sendCity>Praha 2</sendCity>
+    <sendZipCode>12000</sendZipCode>
+    <sendCountry>CZ</sendCountry>
+    <sendContactEmail>eshop@test.cz</sendContactEmail>
+    <sendContactPhone>123456789</sendContactPhone>
+    <recName>Jan Pavel</recName>
+    <recStreet>Olbrachtova</recStreet>
+    <recStreetNumOri>1</recStreetNumOri>
+    <recCity>Liberec</recCity>
+    <recZipCode>46001</recZipCode>
+    <recCountry>CZ</recCountry>
+    <recContactEmail>jan@pavel.cz</recContactEmail>
+    <recContactPhone>987654321</recContactPhone>
+    <addrCode>111222333</addrCode>
+    <pasName/>
+    <pickUpDate/>
+    <pickUpMinutesFrom/>
+    <pickUpMinutesTo/>
+    <routingCodeInput/>
+    <routingCodeOutput/>
+    <services>
+      <COD>
+        <codValue>2000</codValue>
+        <codValueCur>CZ</codValueCur>
+        <varCode>4445555</varCode>
+      </COD>
+    </services>
+    <rows>
+      <row>
+        <note/>
+        <count>1</count>
+        <weight>3000</weight>
+        <volume/>
+      </row>
+    </rows>
+  </Package>
+</ArrayOfPackage>

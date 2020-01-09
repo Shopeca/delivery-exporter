@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<orders>
+  <order>
+    <label>Label</label>
+    <var_symbol/>
+    <payer_select>1</payer_select>
+    <loading_select>1</loading_select>
+    <term_id>1</term_id>
+    <payer>
+      <address>
+        <country>CZ</country>
+        <region/>
+        <city>Praha 2</city>
+        <city_part/>
+        <street>Ulice jedna</street>
+        <house_num/>
+        <zip/>
+      </address>
+      <name>Velký e-shop největší</name>
+      <registration_code/>
+      <vat_code/>
+      <first_name/>
+      <last_name/>
+      <phone>123456789</phone>
+      <email>eshop@test.cz</email>
+    </payer>
+    <loading_comfort_id>1</loading_comfort_id>
+    <discharge_comfort_id>1</discharge_comfort_id>
+    <twoway_shipment>0</twoway_shipment>
+    <yard>0</yard>
+    <delivery_notes_back>0</delivery_notes_back>
+    <euro_pallets_back>0</euro_pallets_back>
+    <loading_aviso>0</loading_aviso>
+    <discharge_aviso>0</discharge_aviso>
+    <aviso_sms>0</aviso_sms>
+    <consider>0</consider>
+    <oversize>0</oversize>
+    <label_fragile>0</label_fragile>
+    <label_dont_tilt>0</label_dont_tilt>
+    <label_this_side_up>0</label_this_side_up>
+    <hydraulic_front_loading>0</hydraulic_front_loading>
+    <hydraulic_front_discharge>0</hydraulic_front_discharge>
+    <cash_on_delivery>
+      <type>1</type>
+      <price>100</price>
+      <price_cur_id/>
+      <account1/>
+      <account2/>
+      <bank/>
+    </cash_on_delivery>
+    <packs>
+      <pack>
+        <quantity>1</quantity>
+        <pack_id>1</pack_id>
+        <description/>
+      </pack>
+    </packs>
+  </order>
+</orders>
