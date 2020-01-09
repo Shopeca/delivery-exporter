@@ -1,19 +1,28 @@
 <?php
-namespace Shopeca\XML\Delivery\Geis;
+namespace Shopeca\XML\Delivery;
 
-trait Updatable {
+/**
+ * Trait UpdatableTrait
+ * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property \DateTime $created
+ * @property string $createdByName
+ * @property \DateTime $changed
+ * @property string $changedByName
+ */
+trait UpdatableTrait {
 
 	/** @var \DateTime */
-	private $created;
+	protected $created;
 
 	/** @var string */
-	private $createdByName;
+	protected $createdByName;
 
 	/** @var \DateTime */
-	private $changed;
+	protected $changed;
 
 	/** @var string */
-	private $changedByName;
+	protected $changedByName;
 
 	/**
 	 * @return \DateTime

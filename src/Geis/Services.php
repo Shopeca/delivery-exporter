@@ -7,6 +7,21 @@ use Nette\SmartObject;
 /**
  * Class Services
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property ADL $ADL
+ * @property ADZ $ADZ
+ * @property AOZ $AOZ
+ * @property APZ $APZ
+ * @property B2C $B2C
+ * @property COD $COD
+ * @property bool $D12
+ * @property bool $exWorks
+ * @property bool $gar
+ * @property Insurance $poj
+ * @property bool $sms
+ * @property bool $ema
+ * @property string $tel
+ * @property bool $pbc
  */
 class Services
 {

@@ -1,11 +1,43 @@
 <?php
 namespace Shopeca\XML\Delivery\Geis;
 
+use Shopeca\XML\Delivery\UpdatableTrait;
 use Shopeca\XML\Generators\BaseItem;
 
+/**
+ * @property  int $deliveryType
+ * @property  int $documentType
+ * @property string $number
+ * @property string $customerReference
+ * @property string $documentNumber
+ * @property string $dpCode
+ * @property string $notFillRecDp
+ * @property string $crossDockName
+ * @property \DateTime $deliveryToDc
+ * @property string $carNumber
+ * @property string $packagePickUpType
+ * @property Person $sender
+ * @property bool $usePrintSend
+ * @property Person $printSend
+ * @property Person $rec
+ * @property string $recNote
+ * @property string $deliveryNote
+ * @property string $addrCode
+ * @property string $pasName
+ * @property \DateTime $pickUpDate
+ * @property string $pickUpMinutesFrom
+ * @property string $pickUpMinutesTo
+ * @property string $routingCodeInput
+ * @property string $routingCodeOutput
+ * @property string $depIdIn
+ * @property string $depIdOut
+ * @property string $backInfoEmail
+ * @property Services $services
+ * @property Row[] $rows
+ */
 class Item extends BaseItem {
 
-	use Updatable;
+	use UpdatableTrait;
 
 	CONST
 		DELIVERY_TYPE_PARCEL = 0,
@@ -52,7 +84,7 @@ class Item extends BaseItem {
 	protected $sender;
 
 	/** @var bool @required */
-	private $usePrintSend;
+	private $usePrintSend = false;
 
 	/** @var Person */
 	protected $printSend;

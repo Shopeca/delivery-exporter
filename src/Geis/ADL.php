@@ -7,6 +7,8 @@ use Nette\SmartObject;
 /**
  * Class ADL - Avízo naskenované doručovací listiny
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $email
  */
 class ADL
 {

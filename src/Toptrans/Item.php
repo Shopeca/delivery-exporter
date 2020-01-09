@@ -3,9 +3,57 @@ namespace Shopeca\XML\Delivery\Toptrans;
 
 use Shopeca\XML\Generators\BaseItem;
 
+/**
+* @property string $label
+* @property string $varSymbol
+* @property int $payerSelect
+* @property int $loadingSelect
+* @property int $termId
+* @property string $loadingDate
+* @property string $loadingTimeFrom
+* @property string $loadingTimeTo
+* @property string $dischargeDate
+* @property string $dischargeTimeFrom
+* @property string $dischargeTimeTo
+* @property int $loadingPersonalBranchId
+* @property int $dischargePersonalBranchId
+* @property Person $payer
+* @property Person $loading
+* @property Person $discharge
+* @property int $loadingComfortId
+* @property int $dischargeComfortId
+* @property bool $twowayShipment
+* @property string $twowayShipmentDescription
+* @property bool $yard
+* @property int $deliveryNotesBack
+* @property bool $euroPalletsBack
+* @property bool $loadingAviso
+* @property bool $dischargeAviso
+* @property bool $avisoSms
+* @property bool $consider
+* @property bool $oversize
+* @property bool $labelFragile
+* @property bool $labelDontTilt
+* @property bool $labelThisSideUp
+* @property bool $hydraulicFrontLoading
+* @property bool $hydraulicFrontDischarge
+* @property CashOnDelivery $cashOnDelivery
+* @property float $kg
+* @property float $m3
+* @property float $dimensionsD
+* @property float $dimensionsS
+* @property float $dimensionsV
+* @property float $orderValue
+* @property string $orderValueCurrency
+* @property string $orderValueCurrencyId
+* @property string $noteLoading
+* @property string $noteDischarge
+* @property Pack[] $packs
+ * @property Adr[] $adrs
+ */
 class Item extends BaseItem {
 
-	use Updatable;
+	use UpdatableTrait;
 
 	const NOTES_BACK_NO = 0;
 	const NOTES_BACK_ELECTRONIC = 1;
