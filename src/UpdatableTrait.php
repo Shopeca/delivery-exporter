@@ -3,7 +3,7 @@ namespace Shopeca\XML\Delivery;
 
 /**
  * Trait UpdatableTrait
- * @package Shopeca\XML\Delivery\Geis
+ * @package Shopeca\XML\Delivery
  *
  * @property \DateTime $created
  * @property string $createdByName
@@ -33,7 +33,7 @@ trait UpdatableTrait {
 
 	/**
 	 * @param \DateTime|string $created
-	 * @return Item
+	 * @return self
 	 */
 	public function setCreated ( $created ) {
 		$this->created = $created instanceof \DateTime ? $created : new \DateTime($created);
@@ -49,7 +49,7 @@ trait UpdatableTrait {
 
 	/**
 	 * @param string $createdByName
-	 * @return Item
+	 * @return self
 	 */
 	public function setCreatedByName ( $createdByName ) {
 		$this->createdByName = $createdByName;
@@ -65,7 +65,7 @@ trait UpdatableTrait {
 
 	/**
 	 * @param \DateTime|string $changed
-	 * @return Item
+	 * @return self
 	 */
 	public function setChanged ( $changed ) {
 		$this->changed = $changed instanceof \DateTime ? $changed : new \DateTime($changed);
@@ -81,7 +81,7 @@ trait UpdatableTrait {
 
 	/**
 	 * @param string $changedByName
-	 * @return Item
+	 * @return self
 	 */
 	public function setChangedByName ( $changedByName ) {
 		$this->changedByName = $changedByName;
