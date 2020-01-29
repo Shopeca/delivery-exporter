@@ -3,16 +3,26 @@ namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
 use Nette\SmartObject;
+use Shopeca\XML\Delivery\UpdatableTrait;
 
 /**
  * Class Row
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $note
+ * @property string $lPacType
+ * @property int $count
+ * @property float $weight
+ * @property float $length
+ * @property float $width
+ * @property string $volume
+ * @property Number[] $numbers
  */
 class Row
 {
 
 	use SmartObject;
-	use Updatable;
+	use UpdatableTrait;
 
 	/** @var string */
 	private $note;
@@ -35,7 +45,7 @@ class Row
 	/** @var string */
 	private $volume; // For cargo only
 
-	/** @var Numbers[] */
+	/** @var Number[] */
 	private $numbers;
 
 	/**
@@ -151,15 +161,15 @@ class Row
 	}
 
 	/**
-	 * @return Numbers[]
+	 * @return Number[]
 	 */
 	public function getNumbers () {
 		return $this->numbers;
 	}
 
 	/**
-	 * @param Number[] $numbers
-	 * @return Row
+	 * @param Number $number
+	 * @return $this
 	 */
 	public function addNumber ( Number $number ) {
 		$this->numbers[] = $number;

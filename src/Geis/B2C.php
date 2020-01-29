@@ -7,6 +7,8 @@ use Nette\SmartObject;
 /**
  * Class B2C - Pro soukromé adresy
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $phone
  */
 class B2C
 {

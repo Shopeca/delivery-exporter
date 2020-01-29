@@ -7,6 +7,15 @@ use Nette\SmartObject;
 /**
  * Class Person
  * @package Shopeca\XML\Delivery\Toptrans
+ *
+ * @property Address $address
+ * @property string $name
+ * @property string $registrationCode
+ * @property string $vatCode
+ * @property string $firstName
+ * @property string $lastName
+ * @property string $phone
+ * @property string $email
  */
 class Person
 {

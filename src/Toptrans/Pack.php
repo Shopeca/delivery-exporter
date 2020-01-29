@@ -6,6 +6,10 @@ use Nette\SmartObject;
 
 /**
  * @package Shopeca\XML\Delivery\Toptrans
+ *
+ * @property int $quantity
+ * @property int $packId
+ * @property string $description
  */
 class Pack
 {

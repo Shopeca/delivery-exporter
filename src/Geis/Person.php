@@ -7,6 +7,17 @@ use Nette\SmartObject;
 /**
  * Class Person
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $name
+ * @property string $street
+ * @property string $streetNumOri
+ * @property string $streetNumDesc
+ * @property string $city
+ * @property string $zipCode
+ * @property string $country
+ * @property string $contactName
+ * @property string $contactEmail
+ * @property string $contactPhone
  */
 class Person
 {

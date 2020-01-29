@@ -7,6 +7,9 @@ use Nette\SmartObject;
 /**
  * Class Insurance
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property int $value
+ * @property string $valueCur
  */
 class Insurance
 {

@@ -7,6 +7,8 @@ use Nette\SmartObject;
 /**
  * Class AOZ - Avízo poškozené zásilky
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $phoneOrEmail
  */
 class AOZ
 {

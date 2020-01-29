@@ -7,6 +7,11 @@ use Nette\SmartObject;
 /**
  * Adr - nebezpečné látky
  * @package Shopeca\XML\Delivery\Toptrans
+ *
+ * @property int $un
+ * @property float $count
+ * @property float $kg
+ * @property bool $environmentDanger
  */
 class Adr
 {

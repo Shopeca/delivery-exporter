@@ -7,6 +7,10 @@ use Nette\SmartObject;
 /**
  * Class COD - Cash on delivery
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property float $value
+ * @property string $valueCur
+ * @property string $varCode
  */
 class COD
 {

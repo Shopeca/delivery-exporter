@@ -3,17 +3,19 @@ namespace Shopeca\XML\Delivery\Geis;
 
 use Nette;
 use Nette\SmartObject;
+use Shopeca\XML\Delivery\UpdatableTrait;
 
 /**
  * Class Number
  * @package Shopeca\XML\Delivery\Geis
+ *
+ * @property string $packRowNumber
  */
 class Number
 {
 
 	use SmartObject;
-
-	use Updatable;
+	use UpdatableTrait;
 
 	/** @var string */
 	private $packRowNumber; // Item number

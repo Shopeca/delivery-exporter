@@ -17,12 +17,12 @@
 	<sendStreet>{$item->sender->street}</sendStreet>
 	<sendStreetNumOri n:if="$item->sender->streetNumOri">{$item->sender->streetNumOri}</sendStreetNumOri>
 	<sendStreetNumDesc n:if="$item->sender->streetNumDesc">{$item->sender->streetNumDesc}</sendStreetNumDesc>
-	<sendCity>{$item->sender->City}</sendCity>
-	<sendZipCode>{$item->sender->ZipCode}</sendZipCode>
-	<sendCountry>{$item->sender->Country}</sendCountry>
-	<sendContactName n:if="$item->sender->ContactName">{$item->sender->ContactName}</sendContactName>
-	<sendContactEmail n:if="$item->sender->ContactEmail">{$item->sender->ContactEmail}</sendContactEmail>
-	<sendContactPhone n:if="$item->sender->ContactPhone">{$item->sender->ContactPhone}</sendContactPhone>
+	<sendCity>{$item->sender->city}</sendCity>
+	<sendZipCode>{$item->sender->zipCode}</sendZipCode>
+	<sendCountry>{$item->sender->country}</sendCountry>
+	<sendContactName n:if="$item->sender->contactName">{$item->sender->contactName}</sendContactName>
+	<sendContactEmail n:if="$item->sender->contactEmail">{$item->sender->contactEmail}</sendContactEmail>
+	<sendContactPhone n:if="$item->sender->contactPhone">{$item->sender->contactPhone}</sendContactPhone>
 
 	{if $item->isUsePrintSend()}
 		<usePrintSend>1</usePrintSend>
@@ -30,10 +30,10 @@
 		<printSendStreet>{$item->printSend->street}</printSendStreet>
 		<printSendStreetNumOri n:if="$item->printSend->streetNumOri">{$item->printSend->streetNumOri}</printSendStreetNumOri>
 		<printSendStreetNumDesc n:if="$item->printSend->streetNumDesc">{$item->printSend->streetNumDesc}</printSendStreetNumDesc>
-		<printSendCity>{$item->printSend->City}</printSendCity>
-		<printSendZipCode>{$item->printSend->ZipCode}</printSendZipCode>
-		<printSendCountry>{$item->printSend->Country}</printSendCountry>
-		<printSendContactPhone n:if="$item->printSend->ContactPhone">{$item->printSend->ContactPhone}</printSendContactPhone>
+		<printSendCity>{$item->printSend->city}</printSendCity>
+		<printSendZipCode>{$item->printSend->zipCode}</printSendZipCode>
+		<printSendCountry>{$item->printSend->country}</printSendCountry>
+		<printSendContactPhone n:if="$item->printSend->contactPhone">{$item->printSend->contactPhone}</printSendContactPhone>
 	{/if}
 
 	{if $item->isUseRec()}
@@ -41,12 +41,12 @@
 		<recStreet>{$item->rec->street}</recStreet>
 		<recStreetNumOri n:if="$item->rec->streetNumOri">{$item->rec->streetNumOri}</recStreetNumOri>
 		<recStreetNumDesc n:if="$item->rec->streetNumDesc">{$item->rec->streetNumDesc}</recStreetNumDesc>
-		<recCity>{$item->rec->City}</recCity>
-		<recZipCode>{$item->rec->ZipCode}</recZipCode>
-		<recCountry>{$item->rec->Country}</recCountry>
-		<recContactName n:if="$item->rec->ContactName">{$item->rec->ContactName}</recContactName>
-		<recContactEmail n:if="$item->rec->ContactEmail">{$item->rec->ContactEmail}</recContactEmail>
-		<recContactPhone n:if="$item->rec->ContactPhone">{$item->rec->ContactPhone}</recContactPhone>
+		<recCity>{$item->rec->city}</recCity>
+		<recZipCode>{$item->rec->zipCode}</recZipCode>
+		<recCountry>{$item->rec->country}</recCountry>
+		<recContactName n:if="$item->rec->contactName">{$item->rec->contactName}</recContactName>
+		<recContactEmail n:if="$item->rec->contactEmail">{$item->rec->contactEmail}</recContactEmail>
+		<recContactPhone n:if="$item->rec->contactPhone">{$item->rec->contactPhone}</recContactPhone>
 	{/if}
 	<recNote n:if="$item->recNote">{$item->recNote}</recNote>
 

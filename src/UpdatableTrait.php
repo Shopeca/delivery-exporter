@@ -1,19 +1,28 @@
 <?php
-namespace Shopeca\XML\Delivery\Geis;
+namespace Shopeca\XML\Delivery;
 
-trait Updatable {
+/**
+ * Trait UpdatableTrait
+ * @package Shopeca\XML\Delivery
+ *
+ * @property \DateTime $created
+ * @property string $createdByName
+ * @property \DateTime $changed
+ * @property string $changedByName
+ */
+trait UpdatableTrait {
 
 	/** @var \DateTime */
-	private $created;
+	protected $created;
 
 	/** @var string */
-	private $createdByName;
+	protected $createdByName;
 
 	/** @var \DateTime */
-	private $changed;
+	protected $changed;
 
 	/** @var string */
-	private $changedByName;
+	protected $changedByName;
 
 	/**
 	 * @return \DateTime
@@ -24,7 +33,7 @@ trait Updatable {
 
 	/**
 	 * @param \DateTime|string $created
-	 * @return Item
+	 * @return self
 	 */
 	public function setCreated ( $created ) {
 		$this->created = $created instanceof \DateTime ? $created : new \DateTime($created);
@@ -40,7 +49,7 @@ trait Updatable {
 
 	/**
 	 * @param string $createdByName
-	 * @return Item
+	 * @return self
 	 */
 	public function setCreatedByName ( $createdByName ) {
 		$this->createdByName = $createdByName;
@@ -56,7 +65,7 @@ trait Updatable {
 
 	/**
 	 * @param \DateTime|string $changed
-	 * @return Item
+	 * @return self
 	 */
 	public function setChanged ( $changed ) {
 		$this->changed = $changed instanceof \DateTime ? $changed : new \DateTime($changed);
@@ -72,7 +81,7 @@ trait Updatable {
 
 	/**
 	 * @param string $changedByName
-	 * @return Item
+	 * @return self
 	 */
 	public function setChangedByName ( $changedByName ) {
 		$this->changedByName = $changedByName;

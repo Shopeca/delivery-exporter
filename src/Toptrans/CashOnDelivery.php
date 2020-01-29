@@ -6,6 +6,13 @@ use Nette\SmartObject;
 
 /**
  * @package Shopeca\XML\Delivery\Toptrans
+ *
+ * @property int $type
+ * @property float $price
+ * @property string $priceCurId
+ * @property string $account1
+ * @property string $account2
+ * @property string $bank
  */
 class CashOnDelivery
 {
