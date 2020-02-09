@@ -5,6 +5,7 @@ namespace Tests\Utils;
 use PHPUnit\Framework\TestCase;
 use \Shopeca\XML\Delivery\Toptrans as Toptrans;
 use Shopeca\XML\Delivery\Geis as Geis;
+use Shopeca\XML\Delivery\Gls as Gls;
 use Shopeca\XML\Storage;
 
 class DeliveryExportTest extends TestCase
@@ -107,6 +108,33 @@ class DeliveryExportTest extends TestCase
 
 		$this->assertFileExists($filePath);
 		$this->assertXmlFileEqualsXmlFile(__DIR__.'/'.$fileName, $filePath);
+	}
+
+	public function testGlsGenerator(): void
+	{
+		$item = new Gls\Item();
+
+		$item
+			->setName('Karel Vidlička')
+			->setAddress('Vokova 2')
+			->setTown('Slavonice')
+			->setPost('12340')
+			->setCountry('CZ')
+			->setCashOnDelivery(500.50)
+			->setVariableSymbol('445566')
+			->setPhone('+420123555666')
+			->setMail('karel@vidlicka.cz');
+
+		$exporter = new Gls\Exporter(new Gls\CsvStorage(__DIR__.'/../temp'));
+
+		$exporter->addItem($item);
+
+		$fileName = 'gls-export.csv';
+		$filePath = __DIR__.'/../temp/'.$fileName;
+		$exporter->save($fileName);
+
+		$this->assertFileExists($filePath);
+		$this->assertFileEquals(__DIR__.'/'.$fileName, $filePath);
 	}
 
 }
